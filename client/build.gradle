@@ -1,0 +1,27 @@
+plugins {
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+mainClassName = "nl.tudelft.oopp.app.ClientMainApp"
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
+
+    testCompile('org.junit.jupiter:junit-jupiter-api:5.8.2')
+    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.8.2')
+}
+
+javafx {
+    version = "13"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': 'nl.tudelft.oopp.app.ClientMainApp')
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

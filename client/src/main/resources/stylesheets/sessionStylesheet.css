@@ -1,0 +1,13 @@
+.button:hover {
+    -fx-opacity: 0.7;
+    -fx-cursor: hand;
+}
+
+.button:active {
+    -fx-opacity: 0.7;
+    -fx-cursor: hand;
+}
+
+.text {
+    -fx-text-align: middle;
+}
